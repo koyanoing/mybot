@@ -1,8 +1,7 @@
-require('dotenv').config();
 const TelegramBot = require('node-telegram-bot-api');
 const Database = require('better-sqlite3');
 
-const bot = new TelegramBot(process.env.BOT_TOKEN, { polling: true });
+const bot = new TelegramBot('8995547895:AAE2eBQT8o8S38FSGWtk1mq2obCgzIW4yMI', { polling: true });
 const db = new Database('bot.db');
 
 const ADMIN_ID = 8690698115;
@@ -286,3 +285,5 @@ bot.on('callback_query', async (q) => {
     case 'confirm_key': return doClaim(chatId, mid, uid);
   }
 });
+
+console.log('Bot started');
